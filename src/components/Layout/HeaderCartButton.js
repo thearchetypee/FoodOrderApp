@@ -1,7 +1,7 @@
 import React from "react";
 
 import styles from "./HeaderCartButton.module.css"
-import CartIcon from "./CartIcon"
+import CartIcon from "../Cart/CartIcon"
 
 const HeaderCartButton = props => {
     return (
