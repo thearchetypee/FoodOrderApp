@@ -5,13 +5,11 @@ import CartIcon from "../Cart/CartIcon"
 
 const HeaderCartButton = props => {
     return (
-      <button className={styles.button}>
+      <button className={styles.button} onClick={props.onClick}>
         <span className={styles.icon}>
-          <CartIcon/>
+          <CartIcon />
         </span>
-        <span>
-          Your Cart
-        </span>
+        <span>Your Cart</span>
         <span>
           <div className={styles.badge}>0</div>
         </span>
