@@ -13,7 +13,7 @@ const AvaialbleMeals = props => {
       setError(null);
       try {
         const response = await fetch(
-          // Add db URl here
+          "https://react-example-cb048-default-rtdb.firebaseio.com/meals.json"
         );
         if (!response.ok) {
           throw new Error("Something went wrong!");
@@ -30,7 +30,6 @@ const AvaialbleMeals = props => {
             price: data[key].price,
           });
         }
-        console.log("Testing --- " + loadedMeals)
         setMeals(loadedMeals);
       } catch (error) {
         setError(error.message);
@@ -44,13 +43,13 @@ const AvaialbleMeals = props => {
 
     let content = <p>Found no meals.</p>;
     if (isLoading) {
-      content = <p>Loading...</p>;
+      content = <p className={styles.MealLoading}>Loading...</p>;
     }
     if(meals.length > 0) {
       content = <ul>{meals.map((meal) => <MealItem key = {meal.id} meal={meal}/>)}</ul>;
     }
     if (error) {
-      content = <p>{error}</p>;
+      content = <p className={styles.MealError}>{error}</p>;
     }
     return (
       <Card className={styles.meals}>
